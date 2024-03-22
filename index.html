@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dvostruki šahovski sat za osobe bez vida</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  .container {
+    margin-top: 50px;
+  }
+  button {
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Dvostruki šahovski sat za osobe bez vida</h1>
+        <link rel="manifest" href="/manifest.json">
+        <label for="time-select">Odaberite vrijeme (minute):</label>
+        <select id="time-select">
+          <option value="180">3 minute</option>
+          <option value="300" selected>5 minuta</option>
+          <option value="1800">30 minuta</option>
+          <option value="3600">60 minuta</option>
+        </select>
+        <p class="instructions">Pritisnite "Space" za pokretanje brojača za igrača 1 i "Enter" za igrača 2.</p>
+        <button id="player1-btn">Igrač 1</button>
+        <button id="player2-btn">Igrač 2</button>
+        <p id="timer1">time-select</p>
+        <p id="timer2">time-select</p>
+      </div>
+      
+
+<script src="script.js">
+     if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
