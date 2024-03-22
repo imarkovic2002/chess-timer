@@ -1,5 +1,19 @@
 const speechSynthesis = window.speechSynthesis;
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("service-worker.js")
+      .then((registration) =>
+        console.log(
+          "ServiceWorker registration successful with scope: ",
+          registration.scope
+        )
+      )
+      .catch((err) => console.log("ServiceWorker registration failed: ", err));
+  });
+}
+
 function speak(text) {
   if (speechSynthesis.speaking) {
     console.error("Govor je već u tijeku.");
